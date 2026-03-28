@@ -15,34 +15,22 @@
     width:340px; background:#16162a; border-left:2px solid #e8a87c;
     display:flex; flex-direction:column; overflow:hidden;
   }
-  .sidebar-header {
-    padding:16px 16px 8px; text-align:center;
-    border-bottom:1px solid #333;
-  }
+  .sidebar-header { padding:16px 16px 8px; text-align:center; border-bottom:1px solid #333; }
   .sidebar-header h1 { color:#e8a87c; font-size:17px; margin-bottom:4px; letter-spacing:1px; }
   .sidebar-header .sub { color:#888; font-size:11px; }
-  .sidebar-filter {
-    padding:8px 12px; display:flex; flex-wrap:wrap; gap:5px;
-    border-bottom:1px solid #282840;
-  }
+  .sidebar-filter { padding:8px 12px; display:flex; flex-wrap:wrap; gap:5px; border-bottom:1px solid #282840; }
   .filter-btn {
     background:#222240; border:1.5px solid #444; border-radius:14px;
-    color:#bbb; font-size:10px; padding:3px 10px; cursor:pointer;
-    transition: all .15s;
+    color:#bbb; font-size:10px; padding:3px 10px; cursor:pointer; transition:all .15s;
   }
   .filter-btn:hover { border-color:#e8a87c; color:#fff; }
   .filter-btn.active { background:#e8a87c22; border-color:#e8a87c; color:#e8a87c; font-weight:600; }
   .sidebar-list { flex:1; overflow-y:auto; padding:8px 10px; }
   .area-group { margin-bottom:10px; }
-  .area-label {
-    font-size:11px; font-weight:700; letter-spacing:1px;
-    padding-bottom:3px; margin-bottom:4px;
-    border-bottom:1px solid #333;
-  }
+  .area-label { font-size:11px; font-weight:700; letter-spacing:1px; padding-bottom:3px; margin-bottom:4px; border-bottom:1px solid #333; }
   .cafe-item {
     display:flex; align-items:center; gap:8px;
-    padding:6px 6px; border-radius:6px; cursor:pointer;
-    transition: background .15s;
+    padding:6px 6px; border-radius:6px; cursor:pointer; transition:background .15s;
   }
   .cafe-item:hover { background:#ffffff10; }
   .cafe-item.highlight { background:#e8a87c20; }
@@ -55,26 +43,24 @@
   .cafe-item .name { font-weight:600; color:#fff; font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .cafe-item .meta { color:#888; font-size:10px; }
   .cafe-item .tags { margin-top:2px; }
-  .cafe-item .tag {
-    display:inline-block; font-size:9px; padding:1px 5px;
-    border-radius:3px; background:#ffffff10; color:#aaa; margin-right:3px;
-  }
+  .cafe-item .tag { display:inline-block; font-size:9px; padding:1px 5px; border-radius:3px; background:#ffffff10; color:#aaa; margin-right:3px; }
   .leaflet-popup-content-wrapper {
     background:rgba(22,22,42,0.97)!important; color:#fff!important;
     border-radius:10px!important; border:1.5px solid #e8a87c!important;
     box-shadow:0 4px 20px rgba(0,0,0,0.6)!important;
   }
   .leaflet-popup-tip { background:rgba(22,22,42,0.97)!important; }
-  .leaflet-popup-content { font-size:13px!important; line-height:1.6!important; margin:10px 14px!important; }
-  .leaflet-popup-content .pop-name { color:#e8a87c; font-size:15px; font-weight:700; }
-  .leaflet-popup-content .pop-area { color:#888; font-size:11px; }
-  .leaflet-popup-content .pop-row { margin:3px 0; }
+  .leaflet-popup-content { font-size:12px!important; line-height:1.55!important; margin:10px 14px!important; }
+  .leaflet-popup-content .pop-name { color:#e8a87c; font-size:14px; font-weight:700; margin-bottom:2px; }
+  .leaflet-popup-content .pop-area { color:#888; font-size:10px; margin-bottom:4px; }
+  .leaflet-popup-content .pop-section { color:#aaa; font-size:10px; font-weight:600; margin-top:6px; margin-bottom:2px; text-transform:uppercase; letter-spacing:.5px; }
+  .leaflet-popup-content .pop-row { margin:2px 0; }
+  .leaflet-popup-content .pop-menu { color:#ccc; font-size:11px; }
+  .leaflet-popup-content .pop-menu li { margin:1px 0; list-style:none; }
+  .leaflet-popup-content .pop-menu li::before { content:'→ '; color:#e8a87c; }
   .leaflet-popup-content a { color:#79b8ff; text-decoration:none; }
   .leaflet-popup-content a:hover { text-decoration:underline; }
-  .footer-note {
-    padding:6px 12px; text-align:center;
-    color:#555; font-size:9px; border-top:1px solid #282840;
-  }
+  .footer-note { padding:6px 12px; text-align:center; color:#555; font-size:9px; border-top:1px solid #282840; }
   @media (max-width:768px) {
     #app { flex-direction:column-reverse; }
     .sidebar { width:100%; height:45vh; border-left:none; border-top:2px solid #e8a87c; }
@@ -92,7 +78,7 @@
     </div>
     <div class="sidebar-filter" id="filters"></div>
     <div class="sidebar-list" id="list"></div>
-    <div class="footer-note">by Kurisu 🔬 — 資料更新至 2026.03.28<br>點擊標記或列表查看詳情</div>
+    <div class="footer-note">by Kurisu 🔬 — 資料更新至 2026.03.28<br>點擊標記或列表查看詳情｜營業時間請以店家公告為準</div>
   </div>
 </div>
 <script>
@@ -103,29 +89,120 @@ const areaColors = {
 };
 
 const cafes = [
-  {n:1,name:"RUFOUS COFFEE ROASTERS",lat:25.02347,lng:121.54370,area:"大安區",station:"科技大樓站",price:"$150–250",tags:["世界百大","自烘","不限時"],gmap:"https://maps.google.com/?q=台北市大安區復興南路二段339號"},
-  {n:2,name:"Oasis Coffee Roasters",lat:25.03290,lng:121.55250,area:"大安區",station:"信義安和站",price:"~$200",tags:["WCC冠軍","自烘"],gmap:"https://maps.google.com/?q=台北市大安區信義路四段199巷7-3號"},
-  {n:3,name:"Congrats Café",lat:25.03340,lng:121.54770,area:"大安區",station:"信義安和站",price:"$90–200",tags:["侘寂老宅","深夜","不限時"],gmap:"https://maps.google.com/?q=台北市大安區文昌街49號2F"},
-  {n:4,name:"2730 café 貳柒參零",lat:25.03350,lng:121.55550,area:"大安區",station:"信義安和站",price:"$150–330",tags:["店貓","復古","有正餐"],gmap:"https://maps.google.com/?q=台北市大安區延吉街288號"},
-  {n:5,name:"CRO#FEE 咖啡井",lat:25.04150,lng:121.54500,area:"大安區",station:"忠孝復興站",price:"$150–250",tags:["韓系","可朗芙","寵物友善"],gmap:"https://maps.google.com/?q=台北市大安區忠孝東路三段248巷11-1號1樓"},
-  {n:6,name:"翌日咖啡店 yokujitsu",lat:25.02900,lng:121.52800,area:"大安區",station:"東門站",price:"~$350",tags:["昭和復古","深夜","布蕾"],gmap:"https://maps.google.com/?q=台北市大安區潮州街176號"},
-  {n:7,name:"Coppii Lumii 冉冉生活",lat:25.02600,lng:121.54400,area:"大安區",station:"科技大樓站",price:"$150–250",tags:["採光佳","早午餐"],gmap:"https://maps.google.com/?q=Coppii+Lumii+冉冉生活+台北"},
-  {n:8,name:"Fika Fika Cafe",lat:25.05150,lng:121.53350,area:"中山區",station:"松江南京站",price:"$120–300",tags:["北歐風","手沖","肉桂捲"],gmap:"https://maps.google.com/?q=台北市中山區伊通街33號"},
-  {n:9,name:"窩著咖啡 Perch Café",lat:25.05300,lng:121.53300,area:"中山區",station:"松江南京站",price:"$120–200",tags:["書架","鍋煮奶茶","限時3hr"],gmap:"https://maps.google.com/?q=台北市中山區松江路97巷2號1樓"},
-  {n:10,name:"CAFE RACO",lat:25.05750,lng:121.53700,area:"中山區",station:"行天宮站",price:"$150–250",tags:["不限時","鬆餅","可包場"],gmap:"https://maps.google.com/?q=台北市中山區民生東路二段147巷1號1樓"},
-  {n:11,name:"Simple Kaffa 興波咖啡",lat:25.04430,lng:121.52870,area:"中正區",station:"善導寺站",price:"$180–350",tags:["世界冠軍","華山","手沖"],gmap:"https://maps.google.com/?q=台北市中正區忠孝東路二段27號"},
-  {n:12,name:"Coffee Sind",lat:25.04100,lng:121.53300,area:"中正區",station:"忠孝新生站",price:"$80–300",tags:["世界百大#46","平價","外帶為主"],gmap:"https://maps.google.com/?q=台北市中正區新生南路一段56巷8號"},
-  {n:13,name:"鬧咖啡 NOW coffee",lat:25.04450,lng:121.50900,area:"中正區",station:"西門/北門站",price:"$150–300",tags:["老宅三層","藝文","不限時"],gmap:"https://maps.google.com/?q=台北市中正區延平南路58號"},
-  {n:14,name:"幻猻家珈琲 Pallas Café",lat:25.05530,lng:121.51020,area:"大同區",station:"北門站",price:"$150–280",tags:["京都喫茶","咖哩飯","布丁"],gmap:"https://maps.google.com/?q=台北市大同區迪化街一段14巷14號"},
-  {n:15,name:"初二咖啡 Ao Tao Zu",lat:25.05940,lng:121.51080,area:"大同區",station:"大橋頭站",price:"$100–200",tags:["深夜","老宅","水餃"],gmap:"https://maps.google.com/?q=台北市大同區涼州街106號2樓"},
-  {n:16,name:"青雲 Misty（青雲閣）",lat:25.03700,lng:121.50100,area:"萬華區",station:"龍山寺站",price:"$120–320",tags:["百年古蹟","台灣茶","餐酒館"],gmap:"https://maps.google.com/?q=台北市萬華區西昌街145號"},
-  {n:17,name:"蜂大咖啡",lat:25.04300,lng:121.50700,area:"萬華區",station:"西門站",price:"$100–250",tags:["老字號","桃酥","復古"],gmap:"https://maps.google.com/?q=台北市萬華區成都路42號"},
-  {n:18,name:"ALL DAY ROASTING CO.",lat:25.05770,lng:121.55640,area:"松山區",station:"南京三民站",price:"$130–280",tags:["工業風","美式續杯","蘋果派"],gmap:"https://maps.google.com/?q=台北市松山區延壽街329號1樓"},
-  {n:19,name:"THE NORMAL 敦北店",lat:25.05100,lng:121.54900,area:"松山區",station:"小巨蛋站",price:"$120–220",tags:["極簡","安靜","手沖"],gmap:"https://maps.google.com/?q=台北市松山區敦化北路50巷17-3號"},
-  {n:20,name:"豆留森林 CAMA",lat:25.10030,lng:121.54200,area:"士林區",station:"劍潭站轉公車",price:"$250+10%",tags:["陽明山","日式老宅","竹林"],gmap:"https://maps.google.com/?q=台北市士林區格致路70號"},
-  {n:21,name:"TSUTAYA × 路易莎 南港",lat:25.05500,lng:121.60700,area:"南港區",station:"南港站",price:"$80–200",tags:["書店","寬敞","連鎖"],gmap:"https://maps.google.com/?q=TSUTAYA+BOOKSTORE+路易莎+南港"},
-  {n:22,name:"書與咖啡 & 喵甜圈",lat:25.03100,lng:121.53500,area:"大安區",station:"台電大樓站",price:"$120–200",tags:["貓咖啡","閱讀"],gmap:"https://maps.google.com/?q=書與咖啡+喵甜圈+台北"},
-  {n:23,name:"後山咖啡",lat:25.02100,lng:121.54100,area:"大安區",station:"六張犁站",price:"$120–200",tags:["隱藏巷弄","安靜"],gmap:"https://maps.google.com/?q=後山咖啡+台北"}
+  {n:1,name:"RUFOUS COFFEE ROASTERS",lat:25.02347,lng:121.54370,area:"大安區",station:"科技大樓站",price:"$150–250",
+   hours:"12:00–20:00（週四公休）",
+   menu:["漂浮奶油冰滴 $185","冰拿鐵 $170","檸檬蛋糕 $140","手沖/虹吸/康寶藍皆有"],
+   tags:["世界百大","自烘","不限時"],gmap:"https://maps.google.com/?q=台北市大安區復興南路二段339號"},
+
+  {n:2,name:"Oasis Coffee Roasters",lat:25.03290,lng:121.55250,area:"大安區",station:"信義安和站",price:"~$200",
+   hours:"09:00–19:00（每日營業）",
+   menu:["奶油冰滴咖啡","紅豆奶油吐司","手沖單品（一般 / 特殊選豆）"],
+   tags:["WCC冠軍","自烘"],gmap:"https://maps.google.com/?q=台北市大安區信義路四段199巷7-3號"},
+
+  {n:3,name:"Congrats Café",lat:25.03340,lng:121.54770,area:"大安區",station:"信義安和站",price:"$90–200",
+   hours:"平日 08:00–00:00 ／ 週六日 13:00 起",
+   menu:["肉桂捲 $90","青檸重乳酪 $120","桂花釀咖啡拿鐵","手沖單品","晚間有調酒/精釀"],
+   tags:["侘寂老宅","深夜","不限時"],gmap:"https://maps.google.com/?q=台北市大安區文昌街49號2F"},
+
+  {n:4,name:"2730 café 貳柒參零",lat:25.03350,lng:121.55550,area:"大安區",station:"信義安和站",price:"$150–330",
+   hours:"13:00–22:00（依現場為準，假日需 IG 預約）",
+   menu:["榛果拿鐵 $180","黑芝麻麻糬巴斯克 $190","抹茶麻糬司康 $90","紅燒牛肉飯 $330"],
+   tags:["店貓","復古","有正餐"],gmap:"https://maps.google.com/?q=台北市大安區延吉街288號"},
+
+  {n:5,name:"CRO#FEE 咖啡井",lat:25.04150,lng:121.54500,area:"大安區",station:"忠孝復興站",price:"$150–250",
+   hours:"11:00–20:00（依現場公告）",
+   menu:["可朗芙 Croffles（楓糖奶油/提拉米蘇）","法式吐司","特調氣泡飲"],
+   tags:["韓系","可朗芙","寵物友善"],gmap:"https://maps.google.com/?q=台北市大安區忠孝東路三段248巷11-1號1樓"},
+
+  {n:6,name:"翌日咖啡店 yokujitsu",lat:25.02900,lng:121.52800,area:"大安區",station:"東門站",price:"~$350",
+   hours:"14:00–01:00（週一公休）",
+   menu:["布蕾（焦糖酥脆）","手沖黑咖啡","各式特調"],
+   tags:["昭和復古","深夜","布蕾"],gmap:"https://maps.google.com/?q=台北市大安區潮州街176號"},
+
+  {n:7,name:"Coppii Lumii 冉冉生活",lat:25.02600,lng:121.54400,area:"大安區",station:"東門站",price:"$150–250",
+   hours:"09:00–19:30（每日營業）",
+   menu:["厚鬆餅","早午餐盤","乳酪烤餅","手沖咖啡"],
+   tags:["採光佳","早午餐","寵物友善"],gmap:"https://maps.google.com/?q=Coppii+Lumii+冉冉生活+東門+台北"},
+
+  {n:8,name:"Fika Fika Cafe",lat:25.05150,lng:121.53350,area:"中山區",station:"松江南京站",price:"$120–300",
+   hours:"10:00–18:00（依現場公告）",
+   menu:["手沖單品","拿鐵","肉桂捲","檸檬蛋糕"],
+   tags:["北歐風","手沖","肉桂捲"],gmap:"https://maps.google.com/?q=台北市中山區伊通街33號"},
+
+  {n:9,name:"窩著咖啡 Perch Café",lat:25.05300,lng:121.53300,area:"中山區",station:"松江南京站",price:"$120–200",
+   hours:"10:00–18:00（週一公休）",
+   menu:["鍋煮錫蘭鮮奶茶（招牌）","豬排起司蛋大餅三明治","巧克力無花果蛋糕","貝果時蔬套餐"],
+   tags:["書架","鍋煮奶茶","限時3hr"],gmap:"https://maps.google.com/?q=台北市中山區松江路97巷2號1樓"},
+
+  {n:10,name:"CAFE RACO",lat:25.05750,lng:121.53700,area:"中山區",station:"行天宮站",price:"$150–250",
+   hours:"10:00–21:00（週一公休）",
+   menu:["招牌軟Q鬆餅","肉桂捲","手沖咖啡","可預約包場"],
+   tags:["不限時","鬆餅","可包場"],gmap:"https://maps.google.com/?q=台北市中山區民生東路二段147巷1號1樓"},
+
+  {n:11,name:"Simple Kaffa 興波咖啡",lat:25.04430,lng:121.52870,area:"中正區",station:"善導寺站",price:"$180–350",
+   hours:"10:00–18:00（每日營業）",
+   menu:["手沖單品（世界冠軍沖煮）","興波拿鐵","可麗露","檸檬塔"],
+   tags:["世界冠軍","華山","手沖"],gmap:"https://maps.google.com/?q=台北市中正區忠孝東路二段27號"},
+
+  {n:12,name:"Coffee Sind",lat:25.04100,lng:121.53300,area:"中正區",station:"忠孝新生站",price:"$80–300",
+   hours:"10:00–18:00（週一公休）",
+   menu:["赤坎糖拿鐵（布蕾奶泡）","短笛 Piccolo（多肉盆栽杯架）","手沖單品 $120 起"],
+   tags:["世界百大#46","平價","外帶為主"],gmap:"https://maps.google.com/?q=台北市中正區新生南路一段56巷8號"},
+
+  {n:13,name:"鬧咖啡 NOW coffee",lat:25.04450,lng:121.50900,area:"中正區",station:"西門/北門站",price:"$150–300",
+   hours:"平日 11:30–22:00 ／ 週日 11:30–19:00",
+   menu:["肉桂捲","巴斯克乳酪蛋糕","司康","貝果/佛卡夏","隱藏版員工餐"],
+   tags:["老宅三層","藝文","不限時"],gmap:"https://maps.google.com/?q=台北市中正區延平南路58號"},
+
+  {n:14,name:"幻猻家珈琲 Pallas Café",lat:25.05530,lng:121.51020,area:"大同區",station:"北門站",price:"$150–280",
+   hours:"11:00–18:00（週一二公休）",
+   menu:["招牌咖哩飯 $280","焦糖布丁（大人味）","焙茶拿鐵 $180","法蘭絨手沖"],
+   tags:["京都喫茶","咖哩飯","布丁"],gmap:"https://maps.google.com/?q=台北市大同區迪化街一段14巷14號"},
+
+  {n:15,name:"初二咖啡 Ao Tao Zu",lat:25.05940,lng:121.51080,area:"大同區",station:"大橋頭站",price:"$100–200",
+   hours:"14:30–00:00（每日營業）",
+   menu:["水餃（招牌鹹食）","黑糖卡布 $150","西西里咖啡 $150","檸檬塔 $140"],
+   tags:["深夜","老宅","水餃"],gmap:"https://maps.google.com/?q=台北市大同區涼州街106號2樓"},
+
+  {n:16,name:"青雲 Misty（青雲閣）",lat:25.03700,lng:121.50100,area:"萬華區",station:"龍山寺站",price:"$120–320",
+   hours:"12:00–22:00（週一公休）",
+   menu:["金萱茶 $280","手沖單品咖啡","台式乾拌麵","晚間轉餐酒館"],
+   tags:["百年古蹟","台灣茶","餐酒館"],gmap:"https://maps.google.com/?q=台北市萬華區西昌街145號"},
+
+  {n:17,name:"蜂大咖啡",lat:25.04300,lng:121.50700,area:"萬華區",station:"西門站",price:"$100–250",
+   hours:"08:00–22:30（每日營業）",
+   menu:["招牌咖啡配桃酥","虹吸式咖啡","蛋糕/鬆餅"],
+   tags:["老字號","桃酥","復古"],gmap:"https://maps.google.com/?q=台北市萬華區成都路42號"},
+
+  {n:18,name:"ALL DAY ROASTING CO.",lat:25.05770,lng:121.55640,area:"松山區",station:"南京三民站",price:"$130–280",
+   hours:"10:00–21:00（每日營業）",
+   menu:["酥烤蘋果派+冰淇淋（現烤 20-30 分）","煙燻鮭魚三明治","美式咖啡（無限續杯）"],
+   tags:["工業風","美式續杯","蘋果派"],gmap:"https://maps.google.com/?q=台北市松山區延壽街329號1樓"},
+
+  {n:19,name:"THE NORMAL 敦北店",lat:25.05100,lng:121.54900,area:"松山區",station:"小巨蛋站",price:"$120–220",
+   hours:"09:00–18:00（依現場公告）",
+   menu:["手沖單品","拿鐵","可麗露","當日甜點"],
+   tags:["極簡","安靜","手沖"],gmap:"https://maps.google.com/?q=台北市松山區敦化北路50巷17-3號"},
+
+  {n:20,name:"豆留森林 CAMA",lat:25.10030,lng:121.54200,area:"士林區",station:"劍潭站轉公車",price:"$250+10%",
+   hours:"10:00–18:30（限時 90 分鐘，建議訂位）",
+   menu:["早午餐套餐（含飲品）","季節甜點","義大利麵/燉飯","手沖/義式咖啡"],
+   tags:["陽明山","日式老宅","竹林"],gmap:"https://maps.google.com/?q=台北市士林區格致路70號"},
+
+  {n:21,name:"TSUTAYA × 路易莎 南港",lat:25.05500,lng:121.60700,area:"南港區",station:"南港站",price:"$80–200",
+   hours:"平日 08:30–21:30 ／ 週五六 至 22:00",
+   menu:["路易莎精品手沖","拿鐵/美式","Share Lounge 零食自助吧（$90 起）"],
+   tags:["書店","寬敞","Share Lounge"],gmap:"https://maps.google.com/?q=TSUTAYA+BOOKSTORE+南港+CITYLINK"},
+
+  {n:22,name:"書與咖啡 & 喵甜圈",lat:25.05410,lng:121.61450,area:"南港區",station:"南港展覽館站",price:"$80–200",
+   hours:"平日 07:30–18:00 ／ 週日 08:30–14:00（週六公休）",
+   menu:["手作甜甜圈","手沖咖啡","鮮奶茶"],
+   tags:["貓咖啡","甜甜圈","社區感"],gmap:"https://maps.google.com/?q=台北市南港區研究院路二段7-8號"},
+
+  {n:23,name:"後山咖啡 BACKMOUNT",lat:25.04480,lng:121.58800,area:"南港區",station:"後山埤站",price:"$120–250",
+   hours:"平日 09:30–17:00 ／ 假日 09:30–18:00",
+   menu:["自家烘焙手沖","早午餐盤","輕食下午茶","可外送"],
+   tags:["自烘","早午餐","社區隱藏"],gmap:"https://maps.google.com/?q=台北市南港區福德街373巷23號"}
 ];
 
 const map = L.map('map',{zoomControl:true}).setView([25.048,121.535],13);
@@ -145,21 +222,23 @@ function createMarker(c) {
     display:flex;align-items:center;justify-content:center;
     font-weight:800;font-size:${c.n>9?11:13}px;color:#12121f;
     box-shadow:0 2px 8px rgba(0,0,0,0.5);
-    transition:transform .15s;
   ">${c.n}</div>`;
   const icon = L.divIcon({html,className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]});
   const m = L.marker([c.lat,c.lng],{icon});
 
   const tagsHtml = c.tags.map(t=>`<span style="display:inline-block;background:#ffffff15;padding:1px 6px;border-radius:3px;font-size:10px;color:#aaa;margin-right:3px;">${t}</span>`).join('');
+  const menuHtml = c.menu.map(item=>`<li>${item}</li>`).join('');
 
   m.bindPopup(`
     <div class="pop-name">${c.n}. ${c.name}</div>
     <div class="pop-area">${c.area}</div>
-    <div class="pop-row">🚇 ${c.station}</div>
-    <div class="pop-row">💰 ${c.price}</div>
-    <div style="margin:5px 0">${tagsHtml}</div>
-    <div><a href="${c.gmap}" target="_blank" rel="noopener">📍 Google Maps 導航</a></div>
-  `,{maxWidth:280});
+    <div class="pop-row">🚇 ${c.station}　💰 ${c.price}</div>
+    <div class="pop-row">🕐 ${c.hours}</div>
+    <div style="margin:4px 0">${tagsHtml}</div>
+    <div class="pop-section">🍽️ 必點推薦</div>
+    <ul class="pop-menu">${menuHtml}</ul>
+    <div style="margin-top:6px"><a href="${c.gmap}" target="_blank" rel="noopener">📍 Google Maps 導航</a></div>
+  `,{maxWidth:300,minWidth:220});
 
   m.on('click',()=>highlightSidebar(c.n));
   markers[c.n] = m;
@@ -169,22 +248,16 @@ function createMarker(c) {
 // Filters
 const filterDiv = document.getElementById('filters');
 const allBtn = document.createElement('span');
-allBtn.className = 'filter-btn active';
-allBtn.textContent = '全部';
-allBtn.dataset.area = 'all';
+allBtn.className = 'filter-btn active'; allBtn.textContent = '全部'; allBtn.dataset.area = 'all';
 filterDiv.appendChild(allBtn);
-
 Object.keys(areaColors).forEach(area => {
   const count = cafes.filter(c=>c.area===area).length;
   if(!count) return;
   const btn = document.createElement('span');
-  btn.className = 'filter-btn';
-  btn.textContent = `${area} (${count})`;
-  btn.dataset.area = area;
-  btn.style.borderColor = areaColors[area]+'88';
+  btn.className = 'filter-btn'; btn.textContent = `${area} (${count})`;
+  btn.dataset.area = area; btn.style.borderColor = areaColors[area]+'88';
   filterDiv.appendChild(btn);
 });
-
 let activeFilter = 'all';
 filterDiv.addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
@@ -192,8 +265,7 @@ filterDiv.addEventListener('click', e => {
   activeFilter = btn.dataset.area;
   filterDiv.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  renderList();
-  renderMarkers();
+  renderList(); renderMarkers();
 });
 
 function renderMarkers() {
@@ -208,39 +280,30 @@ function renderMarkers() {
 }
 
 function renderList() {
-  const listDiv = document.getElementById('list');
-  listDiv.innerHTML = '';
+  const listDiv = document.getElementById('list'); listDiv.innerHTML = '';
   const visible = cafes.filter(c=> activeFilter==='all'||c.area===activeFilter);
   const grouped = {};
-  visible.forEach(c=>{
-    if(!grouped[c.area]) grouped[c.area]=[];
-    grouped[c.area].push(c);
-  });
+  visible.forEach(c=>{ if(!grouped[c.area]) grouped[c.area]=[]; grouped[c.area].push(c); });
   const order = ['大安區','中山區','中正區','大同區','萬華區','松山區','士林區','南港區'];
   order.forEach(area=>{
     if(!grouped[area]) return;
-    const grp = document.createElement('div');
-    grp.className = 'area-group';
-    const lbl = document.createElement('div');
-    lbl.className = 'area-label';
-    lbl.style.color = areaColors[area];
-    lbl.textContent = `${area}（${grouped[area].length}）`;
+    const grp = document.createElement('div'); grp.className = 'area-group';
+    const lbl = document.createElement('div'); lbl.className = 'area-label';
+    lbl.style.color = areaColors[area]; lbl.textContent = `${area}（${grouped[area].length}）`;
     grp.appendChild(lbl);
     grouped[area].forEach(c=>{
-      const item = document.createElement('div');
-      item.className = 'cafe-item';
-      item.id = 'item-'+c.n;
+      const item = document.createElement('div'); item.className = 'cafe-item'; item.id = 'item-'+c.n;
       const tagsHtml = c.tags.map(t=>`<span class="tag">${t}</span>`).join('');
       item.innerHTML = `
         <div class="num" style="background:${areaColors[c.area]}">${c.n}</div>
         <div class="info">
           <div class="name">${c.name}</div>
           <div class="meta">🚇 ${c.station}　💰 ${c.price}</div>
+          <div class="meta">🕐 ${c.hours}</div>
           <div class="tags">${tagsHtml}</div>
         </div>`;
       item.addEventListener('click',()=>{
-        const m = markers[c.n];
-        if(m){map.setView([c.lat,c.lng],15);m.openPopup();}
+        const m = markers[c.n]; if(m){map.setView([c.lat,c.lng],15);m.openPopup();}
         highlightSidebar(c.n);
       });
       grp.appendChild(item);
@@ -255,8 +318,7 @@ function highlightSidebar(n) {
   if(el){el.classList.add('highlight');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
 }
 
-renderList();
-renderMarkers();
+renderList(); renderMarkers();
 </script>
 </body>
 </html>
